@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Insurance Premium Prediction Form</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        .login {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .mb-3 {
+            margin-bottom: 10px;
+            }
+        .mb-3 label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .mb-3 select, .mb-3 input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #cccccc;
+        }
+        .mb-3 input[type="submit"] {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .predicted-value {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+       <h1>Insurance Premium Prediction</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Please Fill the following Information</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="sex" placeholder="Enter the Gender" required>
+                <option class="placeholder" selected disabled value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Smoker</label>
+            <select class="form-control" name="smoker" placeholder="Enter if Smoker or Not" required>
+                <option class="placeholder" selected disabled value="">Select Smoker or not</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Region</label>
+            <select class="form-control" name="region" placeholder="Enter the region" required>
+                <option class="placeholder" selected disabled value="">Select Region</option>
+                <option value="northeast">NorthEast</option>
+                <option value="northwest">NorthWest</option>
+                <option value="southeast">SouthEast</option>
+                <option value="southwest">SouthWest</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Children</label>
+            <input class="form-control" type="number" name="children" placeholder="Number of Children" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input class="form-control" type="number" name="age" placeholder="What's your Age" min='0' max='150' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">BMI</label>
+            <input class="form-control" type="number" name="bmi" placeholder="BMI Value" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Premium" required />
+        </div>
+        </form>
+    <h2>
+       The prediction is {{results}}
+    </h2>
+<body>
+</html>

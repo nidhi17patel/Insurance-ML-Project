@@ -19,3 +19,43 @@ The goal of this project is to give people an estimate of how much premium they 
 ### 2) Data Collection
 - Dataset Source - https://www.kaggle.com/datasets/noordeen/insurance-premium-prediction
 - The data consists of 7 column and 1339 rows.
+
+### 3) Model Workflow
+
+3.1 Model Selection
+
+●	After this the data was split into 2 sets X and y. X contains all the columns except the target column in our case (Count), y contains only the Target column.
+●	Using train test split we first split the dataset into X_train,X_test, y_train, y_test .
+●	 The following libraries were imported to create Regression models.
+○	from sklearn.ensemble import(AdaBoostRegressor,  GradientBoostingRegressor, RandomForestRegressor)
+○	from sklearn.tree import DecisionTreeRegressor
+○	from xgboost import XGBRegressor
+○	from sklearn.linear_model import LinearRegression
+		
+3.2 Model Accuracy Scores.
+
+●	Random Forest Regressor has been chosen as the final algorithm to build the model
+○	MAE: 1043.67
+○	RMSE: 1883.04
+○	Test>R-Squared Accuracy: 0.8603
+○	Train> R-Squared Accuracy: 0.9754
+
+●	The model was pickled using the Python pickle library and was ready for use into our Backend system. 
+
+### 4) Deployment
+
+This model is deployed on AWS EC2 instances. The following are the steps to deploy the model on the AWS platform:
+●	Create an AWS account
+●	Create an ECR
+●	Create S3 bucket
+●	Create an EC2 instance
+●	Edit security group
+●	Connect to an EC2 instance
+●	Add the runner in the GitHub
+●	Add all the secret keys in the GitHub
+●	In the GitHub actions, run the continuous delivery and deployment workflow once after starting the runner in the ec2 instance
+●	A web page  has been created and deployed using flask
+
+
+### 5) Conclusion
+We have successfully built end-to-end ML projects using machine learning that can help predict the medical expenses of the users based on various conditions. This type of system can help users to get a better understanding of their medical expenses and based on it they can buy their insurance plan. 

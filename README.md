@@ -57,5 +57,14 @@ This model is deployed on AWS EC2 instances. The following are the steps to depl
 ●	A web page  has been created and deployed using flask
 
 
+Application is deployed at URL: 
+http://insurancepremiumprediction-env.eba-mxnkvgmm.us-east-1.elasticbeanstalk.com/predictdata
+
+Note - This URL might not work as AWS is charging me amount for this URL to work so I have pasted deployment image in the file for the proof.
+
+![deployment_image](deployment_image.png)
+
+
+
 ### 5) Conclusion
 We have successfully built end-to-end ML projects using machine learning that can help predict the medical expenses of the users based on various conditions. This type of system can help users to get a better understanding of their medical expenses and based on it they can buy their insurance plan. 
